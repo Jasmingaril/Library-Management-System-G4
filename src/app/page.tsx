@@ -30,127 +30,490 @@ export default function Home() {
       <Head>
         <title>IIIIIIIIIIIIIIIIIII</title>
       </Head>
-      <main className="flex flex-col min-h-screen min-w-screen">
-        <div className="flex justify-center items-center min-h-screen min-w-screen bg-red-900 lg:justify-between lg:p-20 lg:items-start">
+      <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+              <div className="w-full overflow-x-auto">
+                <table className="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr
+                      className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                    >
+                      <th className="px-4 py-3">Client</th>
+                      <th className="px-4 py-3">Amount</th>
+                      <th className="px-4 py-3">Status</th>
+                      <th className="px-4 py-3">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                  >
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Hans Burger</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
 
-          {/*THIS BUNCH OF DIVS AND SPANS SHOULD DISAPPEAR STARTING FROM SM TO MD SCREEN SIZE AND SHOULD ONLY APPEAR IN LG */}
-          <div className="lg:flex lg:justify-start lg:flex-col sm:hidden md:hidden">
-            <div className="lg:flex lg:flex-row">
-              <span className="text-white text-8xl">L</span>
-              <span className="text-white text-8xl">I</span>
-              <span className="text-white text-8xl">B</span>
-              <span className="text-white text-8xl">R</span>
-              <span className="text-white text-8xl">A</span>
-              <span className="text-white text-8xl">R</span>
-              <span className="text-white text-8xl">Y</span>
-            </div>
-            <div className="lg:flex lg:flex-row lg:pt-20">
-              <span className="text-white text-8xl">M</span>
-              <span className="text-white text-8xl">A</span>
-              <span className="text-white text-8xl">N</span>
-              <span className="text-white text-8xl">A</span>
-              <span className="text-white text-8xl">G</span>
-              <span className="text-white text-8xl">E</span>
-              <span className="text-white text-8xl">M</span>
-              <span className="text-white text-8xl">E</span>
-              <span className="text-white text-8xl">N</span>
-              <span className="text-white text-8xl">T</span>
-            </div>
-            <div className="lg:flex lg:flex-row lg:pt-20">
-              <span className="text-white text-8xl">S</span>
-              <span className="text-white text-8xl">Y</span>
-              <span className="text-white text-8xl">S</span>
-              <span className="text-white text-8xl">T</span>
-              <span className="text-white text-8xl">E</span>
-              <span className="text-white text-8xl">M</span>
-            </div>
-          </div>
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Jolina Angelie</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Unemployed
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 369.95
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                          Pending
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
 
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Sarah Curry</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Designer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 86.00
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                        >
+                          Denied
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
 
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Rulia Joberts</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Actress
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 1276.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
 
-          <div className={`${notonansjp.variable} w-90 h-120 bg-white px-7 rounded-2xl mt-7.5`}>
-            <div className="flex justify-between items-center py-5">
-              {/*logo is here */}
-              <div className="w-15 h-15">
-                <img src="https://cdn.bulan.sorsu.edu.ph/images/ssu-logo.webp" alt="sorlogo"/>  
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Wenzel Dashington</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Actor
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                        >
+                          Expired
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1502720705749-871143f0e671?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=b8377ca9f985d80264279f277f3a67f5"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Dave Li</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Influencer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Maria Ramovic</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Runner
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1566411520896-01e7ca4726af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Hitney Wouston</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              Singer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+
+                    <tr className="text-gray-700 dark:text-gray-400">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center text-sm">
+                          {/*<!-- Avatar with inset shadow -->*/}
+                          <div
+                            className="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              className="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              className="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p className="font-semibold">Hans Burger</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        $ 863.45
+                      </td>
+                      <td className="px-4 py-3 text-xs">
+                        <span
+                          className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">
+                        6/10/2020
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <h2 className="pr-5 font-bold text-black font-notosansjp">Sorsogon State University <br /><p className="font-notosansjp pl-10">Bulan Campus</p></h2>
-            </div>
-            <div className=" pb-5 flex justify-center items-center">
-              <p className=" text-black/80 lg:hidden ">Library Management System</p>
-            </div>
-            <div className=" flex justify-center items-center">
-              <span>L</span>
-              <span>O</span>
-              <span>G</span>
-              <span>I</span>
-              <span>N</span>
-            </div>
-
-            {/* the form will start here */}
-            <form action="" className="">
-              <span className="text-black">Username:</span>
-              <div className="mb-7">
-                <input type="text" placeholder=" Username" className="border border-black/15 bg-gray-100 rounded-2xl w-75 h-10 px-2.5" />
+              <div
+                className="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+              >
+                <span className="flex items-center col-span-3">
+                  Showing 21-30 of 100
+                </span>
+                <span className="col-span-2"></span>
+                {/*<!-- Pagination -->*/}
+                <span className="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                  <nav aria-label="Table navigation">
+                    <ul className="inline-flex items-center">
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Previous"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="w-4 h-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          4
+                        </button>
+                      </li>
+                      <li>
+                        <span className="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          8
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Next"
+                        >
+                          <svg
+                            className="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
               </div>
-              <span className="text-black">Password:</span>
-              <div className="mb-7">
-                <input type="password" placeholder=" Password" className="border bg-gray-100 black border-black/15 rounded-2xl w-75 h-10 px-2.5" />
-              </div>
-              <div className="flex justify-center items-center pb-1">
-                <button className="cursor-pointer bg-blue-700 h-10 px-10 rounded-4xl text-white font-notosansjp active:opacity-45 hover:transition-all hover:delay-300 hover:px-20">Login</button>
-              </div>
-            </form>
-            <h6 className="pt-1">Don&apos;t have account?<a href="" className="pl-3 underline">Register?</a></h6>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/*<div className={`${geologica.variable}`} style={{ backgroundColor: 'rgb(227, 212, 185)' }}>
-          <div className="py-7 items-center min-h-screen bg-white">
-
-            <div className="flex justify-between bg-transparent pt-55 pl-13 lg:pl-25s">
-              <div className="grid col-start bg-transparent pb-0">
-                <h1 className="font-bold font-geologica text-gray-800 text-4xl">SorSU</h1>
-                <h2 className=" font-bold font-geologica text-gray-800 text-4xl">Online Library System</h2>
-              </div>
             </div>
-            <div className="bg-transparent mt-8 ml-13 mr-100">
-              <Link href={"/items"} className="bg-red-900 text-white py-2 px-10 rounded-full hover:px-12 transition-all hover:duration-100 active:opacity-50 font-geologica">Browse</Link></div>
-          </div>  
-        </div>
-        <div>
-        </div>*/}
-      </main>
     </>
   );
 }

@@ -1,0 +1,193 @@
+"use client";
+import React, { useState } from "react";
+
+const Dashboard: React.FC = () => {
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false); // State for Account dropdown
+
+  const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
+  const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen); // Toggle Account dropdown
+
+  return (
+    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Sidebar */}
+      <aside
+        className={`z-20 fixed inset-y-0 left-0 w-64 overflow-y-auto bg-white dark:bg-gray-800 md:static md:block flex-shrink-0 transition-transform transform ${
+          isSideMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0`}
+      >
+        <div className="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            href="#"
+          >
+            Windmill
+          </a>
+          <ul className="mt-6">
+            <li className="relative px-6 py-3">
+              <span
+                className="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              <a
+                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                href="/"
+              >
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span className="ml-4">Dashboard</span>
+              </a>
+            </li>
+            <li className="relative px-6 py-3">
+              <a
+                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="/books"
+              >
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M12 20l9-5-9-5-9 5 9 5z"></path>
+                  <path d="M12 12l9-5-9-5-9 5 9 5z"></path>
+                </svg>
+                <span className="ml-4">Books</span>
+              </a>
+            </li>
+            <li className="relative px-6 py-3">
+              <a
+                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="/settings"
+              >
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z"></path>
+                  <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V20a2 2 0 01-2 2h-2a2 2 0 01-2-2v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H4a2 2 0 01-2-2v-2a2 2 0 012-2h.09c.7 0 1.34-.37 1.51-1a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06c.48.48 1.14.63 1.82.33H10a1.65 1.65 0 001-1.51V4a2 2 0 012-2h2a2 2 0 012 2v.09c0 .7.37 1.34 1 1.51a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06c-.48.48-.63 1.14-.33 1.82V10c0 .7.37 1.34 1 1.51H20a2 2 0 012 2v2a2 2 0 01-2 2h-.09c-.7 0-1.34.37-1.51 1z"></path>
+                </svg>
+                <span className="ml-4">Settings</span>
+              </a>
+            </li>
+            <li className="relative px-6 py-3">
+              <button
+                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                onClick={toggleAccountMenu}
+                aria-haspopup="true"
+              >
+                <span className="inline-flex items-center">
+                  <svg
+                    className="w-5 h-5"
+                    aria-hidden="true"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                  </svg>
+                  <span className="ml-4">Account</span>
+                </span>
+                <svg
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+              {isAccountMenuOpen && (
+                <ul
+                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                  aria-label="submenu"
+                >
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <a className="w-full" href="/login">
+                      Login
+                    </a>
+                  </li>
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <a className="w-full" href="/create-account">
+                      Create account
+                    </a>
+                  </li>
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <a className="w-full" href="/forgot-password">
+                      Forgot password
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <div className="flex flex-col flex-1">
+        <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+          <div className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+            {/* Mobile hamburger */}
+            <button
+              className="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              onClick={toggleSideMenu}
+              aria-label="Menu"
+            >
+              <svg
+                className="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main className="h-full overflow-y-auto">
+          <div className="container px-6 mx-auto grid">
+            <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+              Dashboard
+            </h2>
+            {/* Add your dashboard content here */}
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

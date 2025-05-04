@@ -10,14 +10,14 @@ const LoginPage: React.FC = () => {
             <img
               aria-hidden="true"
               className="object-cover w-full h-full dark:hidden"
-              src="/assets/img/login-office.jpeg" // Ensure this path is correct
-              alt="Office"
+              src="/library.png" // Corrected path
+              alt="Library"
             />
             <img
               aria-hidden="true"
               className="hidden object-cover w-full h-full dark:block"
-              src="/assets/img/login-office-dark.jpeg" // Ensure this path is correct
-              alt="Office"
+              src="/library.png" // Corrected path
+              alt="Library"
             />
           </div>
 

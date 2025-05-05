@@ -64,7 +64,7 @@ const Tables: React.FC = () => {
             <h4 className="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
               Table with avatars
             </h4>
-            <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+            <div className="w-full mb-8 overflow-hidden shadow-xs">
               <div className="w-full overflow-x-auto">
                 <table className="w-full whitespace-no-wrap">
                   <thead>

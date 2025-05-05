@@ -9,6 +9,7 @@ const Dashboard: React.FC = () => {
   const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen); // Toggle Account dropdown
 
   return (
+    
     <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
       <aside
@@ -151,41 +152,6 @@ const Dashboard: React.FC = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
-      <div className="flex flex-col flex-1">
-        <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-          <div className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
-            {/* Mobile hamburger */}
-            <button
-              className="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
-              onClick={toggleSideMenu}
-              aria-label="Menu"
-            >
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </header>
-
-        <main className="h-full overflow-y-auto">
-          <div className="container px-6 mx-auto grid">
-            <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-              Dashboard
-            </h2>
-            {/* Add your dashboard content here */}
-          </div>
-        </main>
-      </div>
     </div>
   );
 };

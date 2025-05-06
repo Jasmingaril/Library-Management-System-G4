@@ -10,7 +10,7 @@ const LoginPage: React.FC = () => {
             <img
               aria-hidden="true"
               className="object-cover w-full h-full"
-              src="/library.png" // Ensure this path is correct
+              src="/library.png" // Ensure this file exists in the public folder
               alt="Library"
             />
           </div>
@@ -62,7 +62,7 @@ const LoginPage: React.FC = () => {
               <div className="flex flex-col space-y-4">
                 {/* GitHub Login */}
                 <a
-                  href="https://github.com/login" // GitHub login URL
+                  href="https://github.com/login"
                   className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg hover:border-gray-500 focus:outline-none focus:shadow-outline-gray"
                   aria-label="Log in with GitHub"
                 >
@@ -83,7 +83,7 @@ const LoginPage: React.FC = () => {
 
                 {/* Twitter Login */}
                 <a
-                  href="https://twitter.com/login" // Twitter login URL
+                  href="https://twitter.com/login"
                   className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg hover:border-gray-500 focus:outline-none focus:shadow-outline-gray"
                   aria-label="Log in with Twitter"
                 >

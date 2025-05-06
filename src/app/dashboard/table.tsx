@@ -16,76 +16,7 @@ const Tables: React.FC = () => {
         isSideMenuOpen ? "overflow-hidden" : ""
       }`}
     >
-      {/* Sidebar */}
-      <aside className="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block">
-        <div className="py-4 text-gray-500 dark:text-gray-400">
-          <a
-            className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="#"
-          >
-            Windmill
-          </a>
-          <ul className="mt-6">
-            <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="/"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg>
-                <span className="ml-4">Dashboard</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
 
-      {/* Main Content */}
-      <div className="flex flex-col flex-1">
-        <header className="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-          <div className="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
-            {/* Mobile hamburger */}
-            <button
-              className="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
-              onClick={toggleSideMenu}
-              aria-label="Menu"
-            >
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </header>
-
-        <main className="h-full pb-16 overflow-y-auto">
-          <div className="container grid px-6 mx-auto">
-            <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-              Tables
-            </h2>
-
-            {/* Table with avatars */}
-            <h4 className="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-              Table with avatars
-            </h4>
             <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
               <div className="w-full overflow-x-auto">
                 <table className="w-full whitespace-no-wrap">
@@ -154,9 +85,6 @@ const Tables: React.FC = () => {
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </div>
   );
 };
 

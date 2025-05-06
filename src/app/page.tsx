@@ -4,8 +4,8 @@ import { Geologica } from "next/font/google";
 import React from "react";
 
 // Import the sidebar and navbar components
-import ModalsPage from "./dashboard/sidebar";
-import Navbar from "./dashboard/navbar"; // Adjust the path if necessary
+import Sidebar from "./dashboard/sidebar"; // Ensure this path is correct
+import Navbar from "./dashboard/navbar"; // Ensure this path is correct
 
 const notonansjp = Noto_Sans_JP({
   subsets: ["latin"],
@@ -31,11 +31,11 @@ export default function Home() {
 
         <div className="flex flex-1">
           {/* Sidebar */}
-          <ModalsPage />
+          <Sidebar />
 
           {/* Main Content */}
           <div className="flex-1">
-            <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+            <div className="w-full mb-8 overflow-hidden shadow-xs">
               <div className="w-full overflow-x-auto">
                 <table className="w-full whitespace-no-wrap">
                   <thead>
@@ -48,7 +48,6 @@ export default function Home() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    {/* Table rows */}
                     <tr className="text-gray-700 dark:text-gray-400">
                       <td className="px-4 py-3 text-sm">1</td>
                       <td className="px-4 py-3">

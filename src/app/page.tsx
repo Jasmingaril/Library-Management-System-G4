@@ -1,20 +1,21 @@
-import Head from "next/head";
-import { Noto_Sans_JP } from "next/font/google";
-import { Geologica } from "next/font/google";
+"use client";
+
 import React from "react";
+import Sidebar from "./dashboard/sidebar"; // Sidebar component
+import Navbar from "./dashboard/navbar"; // Navbar component
 
-// Import the sidebar and navbar components
-import Sidebar from "./dashboard/sidebar"; 
-import Navbar from "./dashboard/navbar";
+const Home: React.FC = () => {
+  return (
+    <div className="flex flex-col h-screen">
+      {/* Navbar */}
+      <Navbar />
 
-const notonansjp = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["300", "600"],
-  variable: "--font-noto_sans_jp",
-});
+      <div className="flex flex-1">
+        {/* Sidebar */}
+        <Sidebar />
+      </div>
+    </div>
+  );
+};
 
-const geologica = Geologica({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-geologica",
-});
+export default Home;

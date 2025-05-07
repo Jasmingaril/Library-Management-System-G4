@@ -24,7 +24,7 @@ const CreateAccount = () => {
             <img
               aria-hidden="true"
               className="hidden object-cover w-full h-full dark:block"
-              src="/assets/img/create-account-office-dark.jpeg" // Ensure this path is correct
+              src="/library.png/" // Ensure this path is correct
               alt="Office"
             />
           </div>

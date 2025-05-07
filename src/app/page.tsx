@@ -3,7 +3,8 @@ import { Noto_Sans_JP } from "next/font/google";
 import { Geologica } from "next/font/google";
 import React from "react";
 
-// Import the Navbar component
+// Import the sidebar and navbar components
+import Sidebar from "./dashboard/sidebar"; 
 import Navbar from "./dashboard/navbar";
 
 const notonansjp = Noto_Sans_JP({
@@ -17,15 +18,3 @@ const geologica = Geologica({
   weight: ["400", "700"],
   variable: "--font-geologica",
 });
-
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Library Management System</title>
-      </Head>
-      {/* Use the Navbar component */}
-      <Navbar />
-    </>
-  );
-}

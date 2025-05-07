@@ -1,90 +1,109 @@
-import React, { useState } from "react";
+"use client";
+
+import React from "react";
+import { useRouter } from "next/navigation";
 
 const Tables: React.FC = () => {
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false);
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const router = useRouter();
 
-  const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
-  const toggleNotificationsMenu = () =>
-    setIsNotificationsMenuOpen(!isNotificationsMenuOpen);
-  const toggleProfileMenu = () => setIsProfileMenuOpen(!isProfileMenuOpen);
+  const books = [
+    {
+      id: 1,
+      title: "To Kill a Mockingbird",
+      author: "Harper Lee",
+      genre: "Fiction",
+      publicationDate: "1960-07-11",
+    },
+    {
+      id: 2,
+      title: "1984",
+      author: "George Orwell",
+      genre: "Dystopian",
+      publicationDate: "1949-06-08",
+    },
+    {
+      id: 3,
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      genre: "Classic",
+      publicationDate: "1925-04-10",
+    },
+  ];
+
+  const handleEdit = (id: number) => {
+    router.push(`/books/edit/${id}`);
+  };
+
+  const handleView = (id: number) => {
+    router.push(`/books/view/${id}`);
+  };
+
+  const handleDelete = (id: number) => {
+    router.push(`/books/delete/${id}`);
+  };
+
+  const handleUpdate = (id: number) => {
+    router.push(`/books/update/${id}`);
+  };
 
   return (
-    <div
-      className={`flex h-screen bg-gray-50 dark:bg-gray-900 ${
-        isSideMenuOpen ? "overflow-hidden" : ""
-      }`}
-    >
-
-            <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
-              <div className="w-full overflow-x-auto">
-                <table className="w-full whitespace-no-wrap">
-                  <thead>
-                    <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                      <th className="px-4 py-3">Book ID</th>
-                      <th className="px-4 py-3">Book Title</th>
-                      <th className="px-4 py-3">Author</th>
-                      <th className="px-4 py-3">Genre</th>
-                      <th className="px-4 py-3">Publication Date</th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr className="text-gray-700 dark:text-gray-400">
-                      <td className="px-4 py-3 text-sm">1</td> {/* Book ID */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center text-sm">
-                          <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                            <img
-                              className="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1570612861542-284f4c12e75f"
-                              alt="Avatar"
-                              loading="lazy"
-                            />
-                            <div
-                              className="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p className="font-semibold">The Hunger Games</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-sm">Suzzane Collins</td>
-                      <td className="px-4 py-3 text-sm">Mystery</td>
-                      <td className="px-4 py-3 text-sm">6/10/2020</td>
-                    </tr>
-                    <tr className="text-gray-700 dark:text-gray-400">
-                      <td className="px-4 py-3 text-sm">2</td> {/* Book ID */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center text-sm">
-                          <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                            <img
-                              className="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/photo-1570612861542-284f4c12e75f"
-                              alt="Avatar"
-                              loading="lazy"
-                            />
-                            <div
-                              className="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p className="font-semibold">Catching Fire</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-sm">Suzzane Collins</td>
-                      <td className="px-4 py-3 text-sm">Adventure</td>
-                      <td className="px-4 py-3 text-sm">9/1/2013</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+    <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+      <div className="w-full overflow-x-auto">
+        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+          <thead>
+            <tr className="bg-gray-100 text-gray-700">
+              <th className="px-4 py-2 text-left border-b">Book ID</th>
+              <th className="px-4 py-2 text-left border-b">Book Title</th>
+              <th className="px-4 py-2 text-left border-b">Author</th>
+              <th className="px-4 py-2 text-left border-b">Genre</th>
+              <th className="px-4 py-2 text-left border-b">Publication Date</th>
+              <th className="px-4 py-2 text-center border-b">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {books.map((book) => (
+              <tr key={book.id} className="hover:bg-gray-50">
+                <td className="px-4 py-2 border-b">{book.id}</td>
+                <td className="px-4 py-2 border-b">{book.title}</td>
+                <td className="px-4 py-2 border-b">{book.author}</td>
+                <td className="px-4 py-2 border-b">{book.genre}</td>
+                <td className="px-4 py-2 border-b">{book.publicationDate}</td>
+                <td className="px-4 py-2 border-b text-center">
+                  <button
+                    onClick={() => handleEdit(book.id)}
+                    className="text-blue-500 hover:text-blue-700 mx-1"
+                    title="Edit"
+                  >
+                    ✏️
+                  </button>
+                  <button
+                    onClick={() => handleView(book.id)}
+                    className="text-green-500 hover:text-green-700 mx-1"
+                    title="View"
+                  >
+                    👁️
+                  </button>
+                  <button
+                    onClick={() => handleDelete(book.id)}
+                    className="text-red-500 hover:text-red-700 mx-1"
+                    title="Delete"
+                  >
+                    🗑️
+                  </button>
+                  <button
+                    onClick={() => handleUpdate(book.id)}
+                    className="text-yellow-500 hover:text-yellow-700 mx-1"
+                    title="Update"
+                  >
+                    🔄
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 

@@ -3,9 +3,11 @@ import React, { useState } from "react";
 
 const Dashboard: React.FC = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [isBooksMenuOpen, setIsBooksMenuOpen] = useState(false); // State for Books dropdown
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false); // State for Account dropdown
 
   const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
+  const toggleBooksMenu = () => setIsBooksMenuOpen(!isBooksMenuOpen); // Toggle Books dropdown
   const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen); // Toggle Account dropdown
 
   return (
@@ -49,25 +51,57 @@ const Dashboard: React.FC = () => {
               </a>
             </li>
             <li className="relative px-6 py-3">
-              <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="/books"
+              <button
+                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                onClick={toggleBooksMenu}
+                aria-haspopup="true"
               >
+                <span className="inline-flex items-center">
+                  <svg
+                    className="w-5 h-5"
+                    aria-hidden="true"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M12 20l9-5-9-5-9 5 9 5z"></path>
+                    <path d="M12 12l9-5-9-5-9 5 9 5z"></path>
+                  </svg>
+                  <span className="ml-4">Books</span>
+                </span>
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   aria-hidden="true"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                 >
-                  <path d="M12 20l9-5-9-5-9 5 9 5z"></path>
-                  <path d="M12 12l9-5-9-5-9 5 9 5z"></path>
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
                 </svg>
-                <span className="ml-4">Books</span>
-              </a>
+              </button>
+              {isBooksMenuOpen && (
+                <ul
+                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                  aria-label="submenu"
+                >
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <a className="w-full" href="/books/fiction">
+                      Fiction
+                    </a>
+                  </li>
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <a className="w-full" href="/books/non-fiction">
+                      Non-Fiction
+                    </a>
+                  </li>
+                </ul>
+              )}
             </li>
             <li className="relative px-6 py-3">
               <a

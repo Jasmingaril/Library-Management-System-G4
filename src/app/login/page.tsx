@@ -1,17 +1,35 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
+import Image from "next/image"; // Ensure you're using the correct import for Next.js
 
 const LoginPage: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add your login logic here
+    if (!email || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    console.log("Logging in with:", { email, password });
+  };
+
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50">
       <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl">
         <div className="flex flex-col md:flex-row">
           {/* Left Image Section */}
           <div className="hidden md:block md:w-1/2">
-            <img
+            <Image
               aria-hidden="true"
               className="object-cover w-full h-full"
               src="/library.png" // Ensure this file exists in the public folder
               alt="Library"
+              width={500}
+              height={500}
             />
           </div>
 
@@ -21,7 +39,7 @@ const LoginPage: React.FC = () => {
               <h1 className="mb-4 text-xl font-semibold text-gray-700">
                 Login
               </h1>
-              <form>
+              <form onSubmit={handleSubmit}>
                 {/* Email Input */}
                 <label className="block mt-4 text-sm">
                   <span className="text-gray-700">Email</span>
@@ -30,6 +48,8 @@ const LoginPage: React.FC = () => {
                     type="email"
                     placeholder="Enter your email"
                     aria-label="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </label>
@@ -42,6 +62,8 @@ const LoginPage: React.FC = () => {
                     type="password"
                     placeholder="Enter your password"
                     aria-label="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </label>

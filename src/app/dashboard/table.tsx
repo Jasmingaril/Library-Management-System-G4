@@ -74,28 +74,31 @@ const Tables: React.FC = () => {
                     className="text-blue-500 hover:text-blue-700 mx-1"
                     title="Edit"
                   >
-                    ✏️
+                    Edit
                   </button>
                   <button
                     onClick={() => handleView(book.id)}
                     className="text-green-500 hover:text-green-700 mx-1"
                     title="View"
                   >
-                    👁️
+                    View
                   </button>
                   <button
-                    onClick={() => handleDelete(book.id)}
+                    onClick={() => {
+                      if (window.confirm("Are you sure you want to delete this book?")) {
+                        handleDelete(book.id);
+                      }
+                    }}
                     className="text-red-500 hover:text-red-700 mx-1"
                     title="Delete"
                   >
-                    🗑️
+                    Delete
                   </button>
                   <button
                     onClick={() => handleUpdate(book.id)}
                     className="text-yellow-500 hover:text-yellow-700 mx-1"
                     title="Update"
                   >
-                    🔄
                   </button>
                 </td>
               </tr>

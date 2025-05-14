@@ -18,10 +18,10 @@ const CreateAccount = () => {
             <img
               aria-hidden="true"
               className="object-cover w-full h-full dark:hidden"
-              src="/assets/img/create-account-office.jpeg" // Ensure this path is correct
+              src="/assets/img/create-account-office.jpeg" // Ensure this path is correct 
               alt="Office"
             />
-            <img
+            <img 
               aria-hidden="true"
               className="hidden object-cover w-full h-full dark:block"
               src="/library.png/" // Ensure this path is correct
@@ -38,7 +38,7 @@ const CreateAccount = () => {
                   <span className="text-gray-700 dark:text-gray-400">Email</span>
                   <input
                     className="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    placeholder="Email:"
+                    placeholder="Jane Doe"
                     type="email"
                     required
                   />

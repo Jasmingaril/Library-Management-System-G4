@@ -6,6 +6,58 @@ import Navbar from "./dashboard/navbar"; // Navbar component
 
 const Home: React.FC = () => {
   return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
     <div className="flex flex-col h-screen">
       {/* Navbar */}
       <Navbar />

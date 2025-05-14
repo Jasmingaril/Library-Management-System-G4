@@ -3,6 +3,7 @@
 import React from "react";
 import Sidebar from "./dashboard/sidebar"; // Sidebar component
 import Navbar from "./dashboard/navbar"; // Navbar component
+import CreateAccount from "./create-account/page"; 
 
 const Home: React.FC = () => {
   return (

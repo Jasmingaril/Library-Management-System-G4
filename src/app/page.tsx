@@ -53,11 +53,7 @@ const Home: React.FC = () => {
 
 
 
-    
-
-
-
-
+    // Main layout
     <div className="flex flex-col h-screen">
       {/* Navbar */}
       <Navbar />

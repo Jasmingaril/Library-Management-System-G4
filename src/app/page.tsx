@@ -7,6 +7,54 @@ import CreateAccount from "./create-account/page";
 
 const Home: React.FC = () => {
   return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Main layout
     <div className="flex flex-col h-screen">
       {/* Navbar */}
       <Navbar />

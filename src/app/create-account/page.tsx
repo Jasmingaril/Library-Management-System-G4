@@ -18,10 +18,10 @@ const CreateAccount = () => {
             <img
               aria-hidden="true"
               className="object-cover w-full h-full dark:hidden"
-              src="/assets/img/create-account-office.jpeg" // Ensure this path is correct
+              src="/assets/img/create-account-office.jpeg" // Ensure this path is correct 
               alt="Office"
             />
-            <img
+            <img 
               aria-hidden="true"
               className="hidden object-cover w-full h-full dark:block"
               src="/library.png/" // Ensure this path is correct

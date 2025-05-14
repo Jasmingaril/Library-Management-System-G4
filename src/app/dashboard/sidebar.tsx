@@ -173,11 +173,7 @@ const Dashboard: React.FC = () => {
                       Create account
                     </a>
                   </li>
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a className="w-full" href="/forgot-password">
-                      Forgot password
-                    </a>
-                  </li>
+                  
                 </ul>
               )}
             </li>

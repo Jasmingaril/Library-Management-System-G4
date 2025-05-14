@@ -32,6 +32,7 @@ const LoginPage: React.FC = () => {
               height={500}
             />
           </div>
+          
 
           {/* Login Form Section */}
           <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">

@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
 // Book type
-interface Book {
+export interface Book {
   id: number;
   title: string;
   author: string;
@@ -12,278 +11,18 @@ interface Book {
   publicationDate: string;
 }
 
-// EditModal component
-interface EditModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (book: Book) => void;
-  book?: Book;
+// TableProps for receiving books from parent
+interface TableProps {
+  books: Book[];
+  onEdit?: (book: Book) => void;
+  onView?: (book: Book) => void;
+  onDelete?: (book: Book) => void;
 }
 
-const EditModal: React.FC<EditModalProps> = ({ isOpen, onClose, onSave, book }) => {
-  const [title, setTitle] = useState(book?.title || "");
-  const [author, setAuthor] = useState(book?.author || "");
-  const [genre, setGenre] = useState(book?.genre || "");
-  const [publicationDate, setPublicationDate] = useState(book?.publicationDate || "");
-
-  React.useEffect(() => {
-    setTitle(book?.title || "");
-    setAuthor(book?.author || "");
-    setGenre(book?.genre || "");
-    setPublicationDate(book?.publicationDate || "");
-  }, [book]);
-
-  const handleSubmit = () => {
-    if (!book) return;
-    onSave({
-      id: book.id,
-      title,
-      author,
-      genre,
-      publicationDate,
-    });
-    onClose();
-  };
-
-  if (!isOpen || !book) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">Edit Book</h2>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Author</label>
-          <input
-            type="text"
-            value={author}
-            onChange={e => setAuthor(e.target.value)}
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Genre</label>
-          <input
-            type="text"
-            value={genre}
-            onChange={e => setGenre(e.target.value)}
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Publication Date</label>
-          <input
-            type="date"
-            value={publicationDate}
-            onChange={e => setPublicationDate(e.target.value)}
-            className="w-full px-3 py-2 border rounded"
-          />
-        </div>
-        <div className="flex justify-end gap-2">
-          <button onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">Cancel</button>
-          <button onClick={handleSubmit} className="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// ViewModal component
-interface ViewModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  book?: Book;
-}
-
-const ViewModal: React.FC<ViewModalProps> = ({ isOpen, onClose, book }) => {
-  if (!isOpen || !book) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">View Book Details</h2>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Book ID</label>
-          <input
-            type="text"
-            value={book.id}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Title</label>
-          <input
-            type="text"
-            value={book.title}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Author</label>
-          <input
-            type="text"
-            value={book.author}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Genre</label>
-          <input
-            type="text"
-            value={book.genre}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Publication Date</label>
-          <input
-            type="text"
-            value={book.publicationDate}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="flex justify-end gap-2">
-          <button onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// DeleteModal component
-interface DeleteModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onDelete: (id: number) => void;
-  book?: Book;
-}
-
-const DeleteModal: React.FC<DeleteModalProps> = ({ isOpen, onClose, onDelete, book }) => {
-  if (!isOpen || !book) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 text-red-600 text-center">Delete Book</h2>
-        <div className="mb-6 text-center">
-          Are you sure you want to delete <span className="font-bold">{book.title}</span>?
-        </div>
-        <div className="flex justify-end gap-2">
-          <button onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">
-            Cancel
-          </button>
-          <button
-            onClick={() => onDelete(book.id)}
-            className="px-4 py-2 bg-red-600 text-white rounded"
-          >
-            Delete
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Tables: React.FC = () => {
-  const router = useRouter();
-
-  const [books, setBooks] = useState<Book[]>([
-    {
-      id: 1,
-      title: "To Kill a Mockingbird",
-      author: "Harper Lee",
-      genre: "Fiction",
-      publicationDate: "1960-07-11",
-    },
-    {
-      id: 2,
-      title: "1984",
-      author: "George Orwell",
-      genre: "Dystopian",
-      publicationDate: "1949-06-08",
-    },
-    {
-      id: 3,
-      title: "The Great Gatsby",
-      author: "F. Scott Fitzgerald",
-      genre: "Classic",
-      publicationDate: "1925-04-10",
-    },
-  ]);
-
-  const [editModalOpen, setEditModalOpen] = useState(false);
-  const [viewModalOpen, setViewModalOpen] = useState(false);
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
-
-  const handleEdit = (id: number) => {
-    const book = books.find(b => b.id === id);
-    setSelectedBook(book);
-    setEditModalOpen(true);
-  };
-
-  const handleView = (id: number) => {
-    const book = books.find(b => b.id === id);
-    setSelectedBook(book);
-    setViewModalOpen(true);
-  };
-
-  const handleDelete = (id: number) => {
-    const book = books.find(b => b.id === id);
-    setSelectedBook(book);
-    setDeleteModalOpen(true);
-  };
-
-  const handleConfirmDelete = (id: number) => {
-    setBooks(books.filter(b => b.id !== id));
-    setDeleteModalOpen(false);
-  };
-
-  const handleUpdate = (id: number) => {
-    // You can implement update logic here if needed
-  };
-
-  const handleSave = (updatedBook: Book) => {
-    setBooks(books.map(b => (b.id === updatedBook.id ? updatedBook : b)));
-  };
-
+// Table component (stateless, receives books as prop)
+const Table: React.FC<TableProps> = ({ books, onEdit, onView, onDelete }) => {
   return (
     <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
-      {/* Edit Modal */}
-      <EditModal
-        isOpen={editModalOpen}
-        onClose={() => setEditModalOpen(false)}
-        onSave={handleSave}
-        book={selectedBook}
-      />
-      {/* View Modal */}
-      <ViewModal
-        isOpen={viewModalOpen}
-        onClose={() => setViewModalOpen(false)}
-        book={selectedBook}
-      />
-      {/* Delete Modal */}
-      <DeleteModal
-        isOpen={deleteModalOpen}
-        onClose={() => setDeleteModalOpen(false)}
-        onDelete={handleConfirmDelete}
-        book={selectedBook}
-      />
       <div className="w-full overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
           <thead>
@@ -306,31 +45,25 @@ const Tables: React.FC = () => {
                 <td className="px-4 py-2 border-b">{book.publicationDate}</td>
                 <td className="px-4 py-2 border-b text-center">
                   <button
-                    onClick={() => handleEdit(book.id)}
+                    onClick={() => onEdit && onEdit(book)}
                     className="text-blue-500 hover:text-blue-700 mx-1"
                     title="Edit"
                   >
                     Edit
                   </button>
                   <button
-                    onClick={() => handleView(book.id)}
+                    onClick={() => onView && onView(book)}
                     className="text-green-500 hover:text-green-700 mx-1"
                     title="View"
                   >
                     View
                   </button>
                   <button
-                    onClick={() => handleDelete(book.id)}
+                    onClick={() => onDelete && onDelete(book)}
                     className="text-red-500 hover:text-red-700 mx-1"
                     title="Delete"
                   >
                     Delete
-                  </button>
-                  <button
-                    onClick={() => handleUpdate(book.id)}
-                    className="text-yellow-500 hover:text-yellow-700 mx-1"
-                    title="Update"
-                  >
                   </button>
                 </td>
               </tr>
@@ -342,4 +75,4 @@ const Tables: React.FC = () => {
   );
 };
 
-export default Tables;
+export default Table;

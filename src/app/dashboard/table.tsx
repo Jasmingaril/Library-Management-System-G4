@@ -165,6 +165,40 @@ const ViewModal: React.FC<ViewModalProps> = ({ isOpen, onClose, book }) => {
   );
 };
 
+// DeleteModal component
+interface DeleteModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onDelete: (id: number) => void;
+  book?: Book;
+}
+
+const DeleteModal: React.FC<DeleteModalProps> = ({ isOpen, onClose, onDelete, book }) => {
+  if (!isOpen || !book) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
+        <h2 className="text-xl font-semibold mb-4 text-red-600 text-center">Delete Book</h2>
+        <div className="mb-6 text-center">
+          Are you sure you want to delete <span className="font-bold">{book.title}</span>?
+        </div>
+        <div className="flex justify-end gap-2">
+          <button onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">
+            Cancel
+          </button>
+          <button
+            onClick={() => onDelete(book.id)}
+            className="px-4 py-2 bg-red-600 text-white rounded"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Tables: React.FC = () => {
   const router = useRouter();
 
@@ -193,8 +227,9 @@ const Tables: React.FC = () => {
   ]);
 
   const [editModalOpen, setEditModalOpen] = useState(false);
-  const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
   const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
 
   const handleEdit = (id: number) => {
     const book = books.find(b => b.id === id);
@@ -209,7 +244,14 @@ const Tables: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
+    const book = books.find(b => b.id === id);
+    setSelectedBook(book);
+    setDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = (id: number) => {
     setBooks(books.filter(b => b.id !== id));
+    setDeleteModalOpen(false);
   };
 
   const handleUpdate = (id: number) => {
@@ -233,6 +275,13 @@ const Tables: React.FC = () => {
       <ViewModal
         isOpen={viewModalOpen}
         onClose={() => setViewModalOpen(false)}
+        book={selectedBook}
+      />
+      {/* Delete Modal */}
+      <DeleteModal
+        isOpen={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        onDelete={handleConfirmDelete}
         book={selectedBook}
       />
       <div className="w-full overflow-x-auto">
@@ -271,11 +320,7 @@ const Tables: React.FC = () => {
                     View
                   </button>
                   <button
-                    onClick={() => {
-                      if (window.confirm("Are you sure you want to delete this book?")) {
-                        handleDelete(book.id);
-                      }
-                    }}
+                    onClick={() => handleDelete(book.id)}
                     className="text-red-500 hover:text-red-700 mx-1"
                     title="Delete"
                   >

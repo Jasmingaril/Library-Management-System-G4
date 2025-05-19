@@ -78,6 +78,16 @@ const Navbar = () => {
             <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
               Books
             </h2>
+              <div className="text-right mb-4">
+                <Link
+                   href="/books/create"
+                   className="inline-block px-2 py-1 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                   >
+                   Add Book
+                </Link>
+              </div>
+
+        
             {/* Render the Table component */}
             <Table />
           </div>

@@ -20,10 +20,10 @@ const Dashboard: React.FC = () => {
       >
         <div className="py-4 text-gray-500 dark:text-gray-400">
           <a
-            className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            className="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200"
             href="#"
           >
-            Windmill
+            Library Management System
           </a>
           <ul className="mt-6">
             <li className="relative px-6 py-3">

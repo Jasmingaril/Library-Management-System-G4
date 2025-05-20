@@ -48,8 +48,9 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, onClose, onSave, book }) 
 
   if (!isOpen || !book) return null;
 
+  // Modal overlay with z-50 to ensure it appears in front of the table
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
         <h2 className="text-xl font-semibold mb-4">Edit Book</h2>
         <form onSubmit={handleSubmit}>
@@ -95,7 +96,7 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, onClose, onSave, book }) 
           </div>
           <div className="flex justify-end gap-2">
             <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">Cancel</button>
-            <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+            <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Edit</button>
           </div>
         </form>
       </div>
@@ -114,7 +115,7 @@ const ViewModal: React.FC<ViewModalProps> = ({ isOpen, onClose, book }) => {
   if (!isOpen || !book) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
         <h2 className="text-xl font-semibold mb-4">View Book Details</h2>
         <div className="mb-4">
@@ -184,7 +185,7 @@ const DeleteModal: React.FC<DeleteModalProps> = ({ isOpen, onClose, onDelete, bo
   if (!isOpen || !book) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
         <h2 className="text-xl font-semibold mb-4 text-red-600 text-center">Delete Book</h2>
         <div className="mb-6 text-center">
@@ -218,6 +219,8 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
   const [viewModalOpen, setViewModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
+  const [showEditSuccess, setShowEditSuccess] = useState(false);
+  const [showDeleteSuccess, setShowDeleteSuccess] = useState(false);
 
   React.useEffect(() => {
     setBooks(initialBooks);
@@ -244,6 +247,8 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
   const handleConfirmDelete = (id: number) => {
     setBooks(books.filter(b => b.id !== id));
     setDeleteModalOpen(false);
+    setShowDeleteSuccess(true);
+    setTimeout(() => setShowDeleteSuccess(false), 2000); // Hide after 2 seconds
   };
 
   const handleUpdate = (id: number) => {
@@ -252,15 +257,20 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
 
   const handleSave = (updatedBook: Book) => {
     setBooks(books.map(b => (b.id === updatedBook.id ? updatedBook : b)));
+    setShowEditSuccess(true);
+    setTimeout(() => setShowEditSuccess(false), 2000); // Hide after 2 seconds
   };
 
   return (
-    <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+    <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs relative">
       {/* Edit Modal */}
       <EditModal
         isOpen={editModalOpen}
         onClose={() => setEditModalOpen(false)}
-        onSave={handleSave}
+        onSave={(book) => {
+          handleSave(book);
+          setEditModalOpen(false);
+        }}
         book={selectedBook}
       />
       {/* View Modal */}
@@ -276,6 +286,27 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
         onDelete={handleConfirmDelete}
         book={selectedBook}
       />
+
+      {/* Success message for edit */}
+      {showEditSuccess && (
+        <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-all">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          Books Edited Successfully
+        </div>
+      )}
+
+      {/* Success message for delete */}
+      {showDeleteSuccess && (
+        <div className="fixed top-16 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-all">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          Books Deleted Successfully
+        </div>
+      )}
+
       <div className="w-full overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
           <thead>

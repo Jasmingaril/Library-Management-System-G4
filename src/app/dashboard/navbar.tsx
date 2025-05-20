@@ -31,7 +31,7 @@ const AddBookModal: React.FC<AddBookModalProps> = ({ isOpen, onClose, onAdd }) =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
         <h2 className="text-xl font-semibold mb-4">Add Book</h2>
         <form onSubmit={handleSubmit}>
@@ -104,6 +104,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setProfileMenuOpen] = useState(false);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [showAddSuccess, setShowAddSuccess] = useState(false);
 
   // LIFTED STATE: books
   const [books, setBooks] = useState<Book[]>([
@@ -140,6 +141,8 @@ const Navbar = () => {
       },
     ]);
     setAddModalOpen(false);
+    setShowAddSuccess(true);
+    setTimeout(() => setShowAddSuccess(false), 2000); // Hide after 2 seconds
   };
 
   // Filter books by search
@@ -188,6 +191,16 @@ const Navbar = () => {
             </div>
           </div>
         </header>
+
+        {/* Success message for add */}
+        {showAddSuccess && (
+          <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-[100] flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-all">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Added Book Successfully
+          </div>
+        )}
 
         <main className="h-full overflow-y-auto">
           <div className="container px-6 mx-auto grid">

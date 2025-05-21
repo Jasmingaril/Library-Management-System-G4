@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
                 className="absolute inset-y-0 left-0 w-1 bg-white rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
-              <a
+              <Link
                 className="inline-flex items-center w-full text-sm font-semibold text-black transition-colors duration-150 hover:text-violet-200"
                 href="/"
               >
@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
                   <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
                 <span className="ml-4">Dashboard</span>
-              </a>
+              </Link>
             </li>
             <li className="relative px-6 py-3">
               <button
@@ -86,20 +86,20 @@ const Dashboard: React.FC = () => {
                   aria-label="submenu"
                 >
                   <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
-                    <a className="w-full" href="/fiction">
+                    <Link className="w-full" href="/fiction">
                       Fiction
-                    </a>
+                    </Link>
                   </li>
                   <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
-                    <a className="w-full" href="/books/non-fiction">
+                    <Link className="w-full" href="/books/non-fiction">
                       Non-Fiction
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               )}
             </li>
             <li className="relative px-6 py-3">
-              <a
+              <Link
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-violet-200"
                 href="/settings"
               >
@@ -117,7 +117,7 @@ const Dashboard: React.FC = () => {
                   <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V20a2 2 0 01-2 2h-2a2 2 0 01-2-2v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H4a2 2 0 01-2-2v-2a2 2 0 012-2h.09c.7 0 1.34-.37 1.51-1a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06c.48.48 1.14.63 1.82.33H10a1.65 1.65 0 001-1.51V4a2 2 0 012-2h2a2 2 0 012 2v.09c0 .7.37 1.34 1 1.51a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06c-.48.48-.63 1.14-.33 1.82V10c0 .7.37 1.34 1 1.51H20a2 2 0 012 2v2a2 2 0 01-2 2h-.09c-.7 0-1.34.37-1.51 1z"></path>
                 </svg>
                 <span className="ml-4">Settings</span>
-              </a>
+              </Link>
             </li>
             <li className="relative px-6 py-3">
               <button

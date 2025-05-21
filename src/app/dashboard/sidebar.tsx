@@ -12,28 +12,22 @@ const Dashboard: React.FC = () => {
   const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen);
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-screen bg-white-50">
       {/* Sidebar */}
       <aside
-        className={`z-20 fixed inset-y-0 left-0 w-64 overflow-y-auto bg-white dark:bg-gray-800 md:static md:block flex-shrink-0 transition-transform transform ${
+        className={`z-20 fixed inset-y-0 left-0 w-64 overflow-y-auto bg-white-700 text-black md:static md:block flex-shrink-0 transition-transform transform ${
           isSideMenuOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        <div className="py-4 text-gray-500 dark:text-gray-400">
-          <a
-            className="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="#"
-          >
-            Library Management System
-          </a>
+        <div className="py-4 text-black">
           <ul className="mt-6">
             <li className="relative px-6 py-3">
               <span
-                className="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-1 bg-white rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
-                className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                className="inline-flex items-center w-full text-sm font-semibold text-black transition-colors duration-150 hover:text-violet-200"
                 href="/"
               >
                 <svg
@@ -53,7 +47,7 @@ const Dashboard: React.FC = () => {
             </li>
             <li className="relative px-6 py-3">
               <button
-                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-violet-200"
                 onClick={toggleBooksMenu}
                 aria-haspopup="true"
               >
@@ -88,15 +82,15 @@ const Dashboard: React.FC = () => {
               </button>
               {isBooksMenuOpen && (
                 <ul
-                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white rounded-md shadow-inner bg-violet-800"
                   aria-label="submenu"
                 >
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
                     <a className="w-full" href="/fiction">
                       Fiction
                     </a>
                   </li>
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
                     <a className="w-full" href="/books/non-fiction">
                       Non-Fiction
                     </a>
@@ -106,7 +100,7 @@ const Dashboard: React.FC = () => {
             </li>
             <li className="relative px-6 py-3">
               <a
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-violet-200"
                 href="/settings"
               >
                 <svg
@@ -127,7 +121,7 @@ const Dashboard: React.FC = () => {
             </li>
             <li className="relative px-6 py-3">
               <button
-                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-violet-200"
                 onClick={toggleAccountMenu}
                 aria-haspopup="true"
               >
@@ -161,20 +155,20 @@ const Dashboard: React.FC = () => {
               </button>
               {isAccountMenuOpen && (
                 <ul
-                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                  className="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-white rounded-md shadow-inner bg-violet-800"
                   aria-label="submenu"
                 >
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
                     <Link className="w-full" href="/login">
                       Login
                     </Link>
                   </li>
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
                     <Link className="w-full" href="/create-account">
                       Create account
                     </Link>
                   </li>
-                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
                     <Link className="w-full" href="/login">
                       Logout
                     </Link>

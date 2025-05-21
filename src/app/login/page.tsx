@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image"; // Ensure you're using the correct import for Next.js
+import Link from "next/link";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -84,7 +85,7 @@ const LoginPage: React.FC = () => {
               {/* Social Login Buttons */}
               <div className="flex flex-col space-y-4">
                 {/* GitHub Login */}
-                <a
+                <Link
                   href="https://github.com/login"
                   className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg hover:border-gray-500 focus:outline-none focus:shadow-outline-gray"
                   aria-label="Log in with GitHub"
@@ -102,10 +103,10 @@ const LoginPage: React.FC = () => {
                     />
                   </svg>
                   GitHub
-                </a>
+                </Link>
 
                 {/* Twitter Login */}
-                <a
+                <Link
                   href="https://twitter.com/login"
                   className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg hover:border-gray-500 focus:outline-none focus:shadow-outline-gray"
                   aria-label="Log in with Twitter"
@@ -119,24 +120,24 @@ const LoginPage: React.FC = () => {
                     <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.897-.959-2.178-1.559-3.594-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.087-.205-7.72-2.165-10.148-5.144-.423.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.635.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
                   </svg>
                   Twitter
-                </a>
+                </Link>
               </div>
 
               <p className="mt-4">
-                <a
+                <Link
                   className="text-sm font-medium text-purple-600 hover:underline"
                   href="/forgot-password"
                 >
                   Forgot your password?
-                </a>
+                </Link>
               </p>
               <p className="mt-1">
-                <a
+                <Link
                   className="text-sm font-medium text-purple-600 hover:underline"
                   href="/create-account"
                 >
                   Create account
-                </a>
+                </Link>
               </p>
             </div>
           </div>

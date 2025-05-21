@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
               ></span>
               <Link
                 className="inline-flex items-center w-full text-sm font-semibold text-black"
-                href="/"
+                href="/users"
               >
                 <svg
                   className="w-5 h-5"
@@ -63,7 +63,7 @@ const Dashboard: React.FC = () => {
                     stroke="currentColor"
                   >
                     <path d="M12 20l9-5-9-5-9 5 9 5z"></path>
-                    <path d="M12 12l9-5-9-5-9 5 9 5z"></path>
+                    <path d="M12 12l9-5-9-5-9 5-9 5z"></path>
                   </svg>
                   <span className="ml-4">Genre</span>
                 </span>
@@ -159,7 +159,7 @@ const Dashboard: React.FC = () => {
                   aria-label="submenu"
                 >
                   <li className="px-2 py-1 transition-colors duration-150 hover:text-violet-200">
-                    <Link className="w-full" href="/login">
+                    <Link className="w-full" href="/login/page.tsx">
                       Login
                     </Link>
                   </li>

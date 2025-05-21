@@ -1,14 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const Dashboard: React.FC = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [isBooksMenuOpen, setIsBooksMenuOpen] = useState(false); // State for Books dropdown
-  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false); // State for Account dropdown
+  const [isBooksMenuOpen, setIsBooksMenuOpen] = useState(false);
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
   const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
-  const toggleBooksMenu = () => setIsBooksMenuOpen(!isBooksMenuOpen); // Toggle Books dropdown
-  const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen); // Toggle Account dropdown
+  const toggleBooksMenu = () => setIsBooksMenuOpen(!isBooksMenuOpen);
+  const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen);
 
   return (
     <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
@@ -164,16 +165,20 @@ const Dashboard: React.FC = () => {
                   aria-label="submenu"
                 >
                   <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a className="w-full" href="/login">
+                    <Link className="w-full" href="/login">
                       Login
-                    </a>
+                    </Link>
                   </li>
                   <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a className="w-full" href="/create-account">
+                    <Link className="w-full" href="/create-account">
                       Create account
-                    </a>
+                    </Link>
                   </li>
-                  
+                  <li className="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                    <Link className="w-full" href="/login">
+                      Logout
+                    </Link>
+                  </li>
                 </ul>
               )}
             </li>

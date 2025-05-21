@@ -310,7 +310,7 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
       <div className="w-full overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
           <thead>
-            <tr className="bg-gray-100 text-gray-700">
+            <tr className="bg-violet-700 text-white">
               <th className="px-4 py-2 text-left border-b">Book ID</th>
               <th className="px-4 py-2 text-left border-b">Book Title</th>
               <th className="px-4 py-2 text-left border-b">Author</th>

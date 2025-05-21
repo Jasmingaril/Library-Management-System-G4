@@ -10,10 +10,6 @@ const Home: React.FC = () => {
     <div className="flex flex-col h-screen">
       {/* Navbar */}
       <Navbar />
-
-      <div className="flex flex-1">
-        <CreateAccount />
-      </div>
     </div>
   );
 };

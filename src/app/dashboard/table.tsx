@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
 // Book type
 interface Book {
@@ -48,7 +47,6 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, onClose, onSave, book }) 
 
   if (!isOpen || !book) return null;
 
-  // Modal overlay with z-50 to ensure it appears in front of the table
   return (
     <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
@@ -212,8 +210,6 @@ interface TablesProps {
 }
 
 const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
-  const router = useRouter();
-
   const [books, setBooks] = useState<Book[]>(initialBooks);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [viewModalOpen, setViewModalOpen] = useState(false);
@@ -248,17 +244,13 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
     setBooks(books.filter(b => b.id !== id));
     setDeleteModalOpen(false);
     setShowDeleteSuccess(true);
-    setTimeout(() => setShowDeleteSuccess(false), 2000); // Hide after 2 seconds
-  };
-
-  const handleUpdate = (id: number) => {
-    // You can implement update logic here if needed
+    setTimeout(() => setShowDeleteSuccess(false), 2000);
   };
 
   const handleSave = (updatedBook: Book) => {
     setBooks(books.map(b => (b.id === updatedBook.id ? updatedBook : b)));
     setShowEditSuccess(true);
-    setTimeout(() => setShowEditSuccess(false), 2000); // Hide after 2 seconds
+    setTimeout(() => setShowEditSuccess(false), 2000);
   };
 
   return (
@@ -348,12 +340,6 @@ const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
                     title="Delete"
                   >
                     Delete
-                  </button>
-                  <button
-                    onClick={() => handleUpdate(book.id)}
-                    className="text-yellow-500 hover:text-yellow-700 mx-1"
-                    title="Update"
-                  >
                   </button>
                 </td>
               </tr>
